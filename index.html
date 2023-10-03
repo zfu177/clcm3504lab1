@@ -4,12 +4,14 @@
     <title>Newsletter</title>
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel="stylesheet" href="./css/style.css">
      <!-- Compiled and minified JavaScript -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <main>
   <div class="container">
-    <h1>Car Park Booking</h1>
+    <h1><a class="blue-text text-darken-2" href="index.html">Car Park Booking</a></h1>
+    <h3><a class="blue-text text-darken-2 about" href="about.html">About Us</a></h3>
     <div class="row">
       <form class="col s12" id="subscription" onsubmit="sendBookingRequest()">
         <div class="row">
@@ -26,13 +28,22 @@
         </div>
         <div class="row">
           <div class="input-field col s4">
+            <input id="address" type="text" required>
+            <label for="address">Address</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
             <input id="date" type="text" class="datepicker" required>
             <label for="date">Date</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s4">
+          <div class="input-field col s2">
             <input class="waves-effect waves-light btn" type="submit">
+          </div>
+          <div class="input-field col s2">
+            <input class="waves-effect waves-light btn" type="reset">
           </div>
         </div>
         </div>
@@ -52,9 +63,10 @@
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const date = document.getElementById('date').value;
+        const address = document.getElementById('address').value;
         const emailTo = "z.fu177@mybvc.ca";
   
-        window.open(`mailto:${emailTo}?subject=${subject}&body=Name:${name}  Date:${date}  Email:${email}`);
+        window.open(`mailto:${emailTo}?subject=${subject}&body=Name:${name} Adress: ${address} Date:${date}  Email:${email}`);
       }
     </script>
   </dev>
