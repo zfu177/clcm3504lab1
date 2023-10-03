@@ -2,27 +2,61 @@
 <html>
 <head>
     <title>Newsletter</title>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body>
-  <h1>Newsletter Sign Up</h1>
-  <form id="subscription" onsubmit="sendSubscriptionRequest()">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br>
-      <input type="submit" value="Sign Up">
-  </form>
+<main>
+  <div class="container">
+    <h1>Car Park Booking</h1>
+    <div class="row">
+      <form class="col s12" id="subscription" onsubmit="sendBookingRequest()">
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="name" type="text" required>
+            <label for="name">Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="email" type="email" class="validate" required>
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="date" type="text" class="datepicker" required>
+            <label for="date">Date</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input class="waves-effect waves-light btn" type="submit">
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        var options = {};
+        var instances = M.Datepicker.init(elems, options);
+      });
 
-  <script>
-    function sendSubscriptionRequest(){
-      event.preventDefault();
-      const subject = "New Subscription Request";
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const emailTo = "z.fu177@mybvc.ca";
-
-      window.open(`mailto:${emailTo}?subject=${subject}&body=Name:${name}   Email:${email}`);
-    }
-  </script>
-</body>
+      function sendBookingRequest(){
+        event.preventDefault();
+        const subject = "New Booking Request";
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const date = document.getElementById('date').value;
+        const emailTo = "z.fu177@mybvc.ca";
+  
+        window.open(`mailto:${emailTo}?subject=${subject}&body=Name:${name}  Date:${date}  Email:${email}`);
+      }
+    </script>
+  </dev>
+</main>
 </html>
