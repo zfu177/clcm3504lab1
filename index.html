@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter</title>
+</head>
+<body>
+  <h1>Newsletter Sign Up</h1>
+  <form id="subscription" onsubmit="sendSubscriptionRequest()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <input type="submit" value="Sign Up">
+  </form>
+
+  <script>
+    function sendSubscriptionRequest(){
+      event.preventDefault();
+      const subject = "New Subscription Request";
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const emailTo = "z.fu177@mybvc.ca";
+
+      window.open(`mailto:${emailTo}?subject=${subject}&body=Name:${name}   Email:${email}`);
+    }
+  </script>
+</body>
+</html>
